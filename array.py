@@ -12,3 +12,5 @@ array.size  # 元素个数
 a = np.arange(12).reshape((3, 4))    # 3行4列，0到11
 a = np.linspace(1, 10, 20)    # 开始端1，结束端10，且分割成20个数据，生成线段
 a = np.linspace(1, 10, 20).reshape((5, 4))  # 更改shape
+
+# 分支冲突验证
