@@ -74,3 +74,16 @@ for item in A.flat:
 # 14
 # 这一脚本中的flatten是一个展开性质的函数，将多维的矩阵进行展开成1行的数列。
 # 而flat是一个迭代器，本身是一个object属性。
+
+# array合并
+A = np.array([1, 1, 1])
+B = np.array([2, 2, 2])
+np.hstack(A, B)  # 上下合并
+np.vstack(A, B)  # 水平合并
+# np.newaxis() 将序列弄成矩阵属性 可进行转置操作
+print(A[np.newaxis, :])
+# [[1 1 1]]
+print(A[np.newaxis, :].shape)
+# (1,3)
+# np.concatenate()
+C = np.concatenate((A, B, B, A), axis=0)  # 合并操作需要针对多个矩阵或序列时
