@@ -123,3 +123,7 @@ print(np.array_split(A, 3, axis=1))
         [ 7],
         [11]])]
 """
+
+# numpy深拷贝和浅拷贝
+# 浅复制 a = b，具有关联性
+# 深复制 b = a.copy()，无关联性
