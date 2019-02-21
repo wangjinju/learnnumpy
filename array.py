@@ -7,11 +7,13 @@ array.ndim  # 维度
 array.shape  # 行列数
 array.size  # 元素个数
 
+
 # 关键字
 # array dtype zeros ones empty arrange linespace reshape
 a = np.arange(12).reshape((3, 4))    # 3行4列，0到11
 a = np.linspace(1, 10, 20)    # 开始端1，结束端10，且分割成20个数据，生成线段
 a = np.linspace(1, 10, 20).reshape((5, 4))  # 更改shape
+
 
 # numpy基础运算1
 a = np.array([10, 20, 30, 40])   # array([10, 20, 30, 40])
@@ -27,6 +29,7 @@ a = np.random.random((2, 4))
 np.sum(a)
 np.min(a, axis=1)  # 行查找
 np.max(a, axis=0)  # 列查找
+
 
 # numpy基础运算2
 A = np.arange(2, 14).reshape((3, 4))
@@ -75,6 +78,7 @@ for item in A.flat:
 # 这一脚本中的flatten是一个展开性质的函数，将多维的矩阵进行展开成1行的数列。
 # 而flat是一个迭代器，本身是一个object属性。
 
+
 # array合并
 A = np.array([1, 1, 1])
 B = np.array([2, 2, 2])
@@ -87,3 +91,35 @@ print(A[np.newaxis, :].shape)
 # (1,3)
 # np.concatenate()
 C = np.concatenate((A, B, B, A), axis=0)  # 合并操作需要针对多个矩阵或序列时
+
+
+# array分割
+A = np.arange(12).reshape((3, 4))
+print(A)
+"""
+array([[ 0,  1,  2,  3],
+    [ 4,  5,  6,  7],
+    [ 8,  9, 10, 11]])
+"""
+print(np.split(A, 2, axis=1))  # 纵向分割
+"""
+[array([[0, 1],
+        [4, 5],
+        [8, 9]]), array([[ 2,  3],
+        [ 6,  7],
+        [10, 11]])]
+"""
+print(np.split(A, 3, axis=0))  # 横向分割
+# [array([[0, 1, 2, 3]]), array([[4, 5, 6, 7]]), array([[ 8,  9, 10, 11]])]
+
+# 不等量的分割np.array_split()
+print(np.array_split(A, 3, axis=1))
+"""
+[array([[0, 1],
+        [4, 5],
+        [8, 9]]), array([[ 2],
+        [ 6],
+        [10]]), array([[ 3],
+        [ 7],
+        [11]])]
+"""
