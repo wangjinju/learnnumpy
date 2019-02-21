@@ -27,3 +27,37 @@ a = np.random.random((2, 4))
 np.sum(a)
 np.min(a, axis=1)  # 行查找
 np.max(a, axis=0)  # 列查找
+
+# numpy基础运算2
+A = np.arange(2, 14).reshape((3, 4))
+# array([[ 2, 3, 4, 5]
+#        [ 6, 7, 8, 9]
+#        [10,11,12,13]])
+print(np.argmin(A))    # 0 求最小元素索引
+print(np.argmax(A))    # 11 求最大元素索引
+A.mean()  # 或者 np.mean(A)
+A.average()
+A.median()
+np.mean(A)
+# 在cumsum()函数中：生成的每一项矩阵元素均是从原矩阵首项累加到对应项的元素之和。
+# 比如元素9，在cumsum()生成的矩阵中序号为3，即原矩阵中2，3，4三个元素的和。
+print(np.cumsum(A))
+# [2 5 9 14 20 27 35 44 54 65 77 90]
+print(np.diff(A))  # 累差函数：每一行中后一项与前一项之差
+# [[1 1 1]
+#  [1 1 1]
+#  [1 1 1]]
+print(np.nonzero(A))  # 函数将所有非零元素的行与列坐标分割开，重构成两个分别关于行和列的矩阵。
+# (array([0,0,0,0,1,1,1,1,2,2,2,2]),array([0,1,2,3,0,1,2,3,0,1,2,3]))
+np.sort(A)  # 每一行排序
+np.transpose(A)
+A.T  # 两种转置方法
+# 特别的，在Numpy中具有clip()函数，例子如下：
+print(A)
+# array([[14,13,12,11]
+#        [10, 9, 8, 7]
+#        [ 6, 5, 4, 3]])
+print(np.clip(A, 5, 9))  # 将<=5和>=9的元素重新赋值为5和9
+# array([[ 9, 9, 9, 9]
+#        [ 9, 9, 8, 7]
+#        [ 6, 5, 5, 5]])
